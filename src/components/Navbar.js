@@ -1,7 +1,9 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faNewspaper, faDonate, faInfoCircle, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import logo from '../img/logo.png'
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -35,16 +37,16 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
-        className="navbar is-transparent"
+        className="navbar is-dark"
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container">
+        {/* <div className="container"> */}
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+            <Link to="/" className="navbar-item">
+              <img src={logo} alt="Rainbow6-RUSSIA" />
+              <b>Rainbow6-RUSSIA</b>
             </Link>
-            {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
@@ -59,37 +61,36 @@ const Navbar = class extends React.Component {
             id="navMenu"
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
+            <div className="navbar-start">
+              <a class="navbar-item" href="https://discord.gg/r6ru">
+                <FontAwesomeIcon icon={faDiscord}/>
+                Присоединиться
+              </a>
               <Link className="navbar-item" to="/blog">
-                Blog
+                <FontAwesomeIcon icon={faNewspaper}/>
+                Новости
               </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
+              <Link className="navbar-item" to="/donate">
+                <FontAwesomeIcon icon={faDonate}/>
+                Поддержать нас
               </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
+              <Link className="navbar-item" to="/about">
+                <FontAwesomeIcon icon={faInfoCircle}/>
+                О нас
               </Link>
             </div>
-            <div className="navbar-end has-text-centered">
+            <div className="navbar-end">
               <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                className="navbar-item is-disabled"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
+                <FontAwesomeIcon icon={faSignInAlt}/>
+                Вход (скоро)
               </a>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </nav>
     )
   }
