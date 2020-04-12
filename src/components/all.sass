@@ -81,10 +81,10 @@ $black: #2b2523
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
-  padding: 3rem 0rem 0rem
+  padding: 1rem 0rem 0rem
   background-color: transparent
 
-.navbar-item > *
+.navbar-item *
   margin: 0 5px
 
 //Menu overrides
@@ -106,14 +106,17 @@ footer.footer
 .social
   padding: 2em
 .social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background-color: $white-ter
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
+  padding: .5em .5em .3em .5em
+  border-radius: 1em
+  background-color: $white-ter
+  margin: .5em
+  width: 1em
+  height: 1em
+  vertical-align: middle
+  display: inline
+div.social a *
+  vertical-align: baseline
+
 
 // blog roll
 .blog-list-item.is-featured
@@ -124,8 +127,7 @@ footer.footer
 .blog-list-item .featured-thumbnail
   flex-basis: 35%;
   margin: 0 1.5em 0 0;
-
-
+  
 @import "~bulma"
 
 
