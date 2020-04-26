@@ -1,8 +1,8 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faNewspaper, faDonate, faInfoCircle, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
+import { faDonate, faInfoCircle, faNewspaper, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
+import React from 'react'
 import logo from '../img/logo.png'
 
 const Navbar = class extends React.Component {
@@ -15,29 +15,17 @@ const Navbar = class extends React.Component {
   }
 
   toggleHamburger = () => {
-    // toggle the active boolean in the state
     this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
+      { active: !this.state.active },
+      () => this.setState({navBarActiveClass: this.state.active ? 'is-active' : ''})
     )
   }
 
   render() {
     return (
       <nav
-        className="navbar is-dark"
+        className="navbar is-transparent"
+        // className="navbar is-fixed-top is-transparent"
         role="navigation"
         aria-label="main-navigation"
       >
@@ -62,7 +50,7 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start">
-              <a class="navbar-item" href="https://discord.gg/r6ru">
+              <a className="navbar-item" href="https://discord.gg/r6ru">
                 <FontAwesomeIcon icon={faDiscord}/>
                 Присоединиться
               </a>
