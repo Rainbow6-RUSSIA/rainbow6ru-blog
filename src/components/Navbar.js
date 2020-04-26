@@ -2,6 +2,7 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import { faDonate, faInfoCircle, faNewspaper, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 import logo from '../img/logo.png'
 
@@ -24,8 +25,7 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
-        className="navbar is-transparent"
-        // className="navbar is-fixed-top is-transparent"
+        className={`navbar is-fixed-top ${this.props.onTop ? 'navbar-top' : 'navbar-scrolled'}`}
         role="navigation"
         aria-label="main-navigation"
       >
@@ -50,10 +50,6 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start">
-              <a className="navbar-item" href="https://discord.gg/r6ru">
-                <FontAwesomeIcon icon={faDiscord}/>
-                Присоединиться
-              </a>
               <Link className="navbar-item" to="/blog">
                 <FontAwesomeIcon icon={faNewspaper}/>
                 Новости
@@ -76,12 +72,20 @@ const Navbar = class extends React.Component {
                 <FontAwesomeIcon icon={faSignInAlt}/>
                 Вход (скоро)
               </a>
+              <a className="navbar-item" href="https://discord.gg/r6ru">
+                <FontAwesomeIcon icon={faDiscord}/>
+                Присоединиться
+              </a>
             </div>
           </div>
         {/* </div> */}
       </nav>
     )
   }
+}
+
+Navbar.propTypes = {
+  onTop: PropTypes.bool
 }
 
 export default Navbar

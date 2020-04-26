@@ -3,7 +3,7 @@
 // Config vars
 // Rainbow6-RUSSIA logo brand color: #FD461E
 $r6ru-color: #363636
-$r6ru-color-invert: #D64000
+$r6ru-color-invert: #e69800
 
 $primary: $r6ru-color
 $primary-invert: $r6ru-color-invert
@@ -70,9 +70,7 @@ $black: #2b2523
 
 .margin-top-0
   margin-top: 0 !important
-
-.navbar-item .icon
-  color: $primary
+  
 // Override for use of svg's from https://simpleicons.org/
 .icon svg
   width: 1.5rem
@@ -81,12 +79,51 @@ $black: #2b2523
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
-  padding: 1rem 0rem 0rem
+  padding: 1rem 0 0
   background-color: transparent
 
-.navbar-item *
-  margin: 0 5px
 
+@media screen and (max-width: $desktop) 
+  .navbar-menu
+    background-color: $body-color !important
+    border-radius: .5em
+
+.navbar-item 
+  // высота navbar
+  & img
+    max-height: 2.75rem !important
+  & .icon
+    color: $primary
+  & *
+    margin: 0 5px
+
+  // обводка последней кнопки
+  .navbar-end &:last-of-type
+    border: 3px solid $r6ru-color-invert
+    margin-left: .5em
+    color: white !important
+  .navbar-scrolled .navbar-end &:last-of-type
+    background-color: $r6ru-color-invert
+
+  // подчеркивание при наведении на кнопки
+  &:hover
+    background-color: inherit !important  
+    border-bottom: 3px solid $r6ru-color-invert
+  // кроме бренда
+  .navbar-brand &:hover 
+    border-bottom: none
+
+.navbar-item, .navbar-burger
+  color: inherit !important
+
+.navbar
+  padding: .5em
+  &.navbar-top
+    color: white
+    background-color: transparent
+  &.navbar-scrolled
+    background-color: white
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .5)
 
 .index-banner
   background-position: top center
@@ -101,10 +138,11 @@ footer.footer
   flex-direction: column
     
   & h1,h3
-    box-shadow: #353535 0.5rem 0px 0px, #353535 -0.5rem 0px 0px
+    box-shadow: #353535 .5rem 0 0, #353535 -0.5rem 0 0
     background-color: #353535
     color: white
-    padding: 0.25em
+    padding: .25em
+
     
 
 
@@ -121,33 +159,36 @@ footer.footer
 .menu-label
   font-size: 1em !important
   text-align: left
+  
 .menu-list
   list-style: none !important
   text-align: left
+
 .social
   padding: 2em
-.social a
-  padding: .5em .5em .3em .5em
-  border-radius: 1em
-  background-color: $white-ter
-  margin: .5em
-  width: 1em
-  height: 1em
-  vertical-align: middle
-  display: inline
+  & a
+    padding: .5em .5em .3em .5em
+    border-radius: 1em
+    background-color: $white-ter
+    margin: .5em
+    width: 1em
+    height: 1em
+    vertical-align: middle
+    display: inline
 div.social a *
   vertical-align: baseline
 
 
 // blog roll
-.blog-list-item.is-featured
+.blog-list-item
+  &.is-featured
   // background-color: #d6400033;
-.blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
-.blog-list-item .featured-thumbnail
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
+  & header
+    display: flex
+    margin-bottom: 1em
+  & .featured-thumbnail
+    flex-basis: 35%
+    margin: 0 1.5em 0 0
 
 @import "~bulma"
 
@@ -155,12 +196,13 @@ div.social a *
 // responsiveness
 +tablet-only
   .blog-list-item .featured-thumbnail
-    flex-basis: 50%;
+    flex-basis: 50%
 
 +mobile
-  .blog-list-item header
-    display: block
-  .blog-list-item .featured-thumbnail
-    text-align: center;
-    max-width: 70%;
-    margin: 0 0 1em;
+  .blog-list-item
+    & header
+      display: block
+    & .featured-thumbnail
+      text-align: center
+      max-width: 70%
+      margin: 0 0 1em

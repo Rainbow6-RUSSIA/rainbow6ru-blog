@@ -1,5 +1,6 @@
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { withPrefix } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -8,11 +9,21 @@ import useSiteMetadata from './SiteMetadata'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
+
+  const [onTop, setOnTop] = useState(true)
+
+  useScrollPosition(
+    ({ currPos }) => {
+      const isOnTop = currPos.y === 0
+      if (isOnTop !== onTop) setOnTop(isOnTop)
+    },
+    [onTop]
+  )
+
   return (
     <div>
       <Helmet>
         <html lang="ru" />
-        {/* <html lang="ru" class="has-navbar-fixed-top" /> */}
         <title>{title}</title>
         <meta name="description" content={description} />
 
@@ -49,8 +60,8 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
+      <Navbar onTop={onTop} />
+      <div className="has-navbar-fixed-top">{children}</div>
       <Footer />
     </div>
   )
