@@ -84,14 +84,22 @@ footer.footer
 
 
 @media screen and (max-width: $desktop) 
+  // скругление бургер-меню на мобиле когда страница в топе
   .navbar-menu
-    background-color: $body-color !important
-    border-radius: .5em
+    box-shadow: none !important
+    .navbar-top > &
+      background-color: $body-color !important
+      border-radius: 1.5rem
+
+  // отмена границ и сдвига
+  .navbar-item:hover, .navbar-item
+    border: none !important
+    margin-left: 0 !important
 
 .navbar-item 
   // высота navbar
   & img
-    max-height: 2.75rem !important
+    max-height: 3rem !important
   & .icon
     color: $primary
   & *
@@ -115,6 +123,9 @@ footer.footer
 
 .navbar-item, .navbar-burger
   color: inherit !important
+
+.navbar-burger
+  height: 4rem !important
 
 .navbar
   padding: .5em

@@ -38,7 +38,8 @@ const Navbar = class extends React.Component {
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
+              onClick={this.toggleHamburger}
+              onKeyDown={this.toggleHamburger}
             >
               <span />
               <span />
