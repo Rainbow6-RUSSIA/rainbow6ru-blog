@@ -17,14 +17,8 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
+      className="full-width-image margin-top-0 index-banner"
+      style={{ backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})` }}
     >
       <div className="index-title">
         <h1 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen">
