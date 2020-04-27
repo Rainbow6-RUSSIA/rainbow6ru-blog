@@ -36,6 +36,8 @@ const Navbar = class extends React.Component {
               <b>Rainbow6-RUSSIA</b>
             </Link>
             <div
+              role="button"
+              tabIndex="0"
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
               onClick={this.toggleHamburger}
@@ -69,6 +71,7 @@ const Navbar = class extends React.Component {
                 className="navbar-item is-disabled"
                 target="_blank"
                 rel="noopener noreferrer"
+                // href="about"
               >
                 <FontAwesomeIcon icon={faSignInAlt}/>
                 Вход (скоро)

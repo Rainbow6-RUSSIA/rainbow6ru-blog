@@ -82,60 +82,6 @@ footer.footer
   padding: 1rem 0 0
   background-color: transparent
 
-
-@media screen and (max-width: $desktop) 
-  // скругление бургер-меню на мобиле когда страница в топе
-  .navbar-menu
-    box-shadow: none !important
-    .navbar-top > &
-      background-color: $body-color !important
-      border-radius: 1.5rem
-
-  // отмена границ и сдвига
-  .navbar-item:hover, .navbar-item
-    border: none !important
-    margin-left: 0 !important
-
-.navbar-item 
-  // высота navbar
-  & img
-    max-height: 3rem !important
-  & .icon
-    color: $primary
-  & *
-    margin: 0 5px
-
-  // обводка последней кнопки
-  .navbar-end &:last-of-type
-    border: 3px solid $r6ru-color-invert
-    margin-left: .5em
-    color: white !important
-  .navbar-scrolled .navbar-end &:last-of-type
-    background-color: $r6ru-color-invert
-
-  // подчеркивание при наведении на кнопки
-  &:hover
-    background-color: inherit !important  
-    border-bottom: 3px solid $r6ru-color-invert
-  // кроме бренда
-  .navbar-brand &:hover 
-    border-bottom: none
-
-.navbar-item, .navbar-burger
-  color: inherit !important
-
-.navbar-burger
-  height: 4rem !important
-
-.navbar
-  padding: .5em
-  &.navbar-top
-    color: white
-    background-color: transparent
-  &.navbar-scrolled
-    background-color: white
-    box-shadow: 0 0 .5em rgba(0, 0, 0, .5)
-
 .index-banner
   background-position: top center
   background-attachment: fixed
@@ -154,13 +100,10 @@ footer.footer
     color: white
     padding: .25em
 
-    
-
-
 //Menu overrides
 // $menu-item-color: $white-ter
 // $menu-item-hover-color: $black !important
-// $menu-item-hover-background-color: $black
+// $menu-item-hover-background-color: transparent
 // $menu-item-active-color: $r6ru-color-invert
 // $menu-item-active-background-color:	$r6ru-color-invert
 // $menu-list-border-left: 1px solid $r6ru-color-invert
@@ -202,6 +145,72 @@ div.social a *
     margin: 0 1.5em 0 0
 
 @import "~bulma"
+
+// переопределение фреймворка (a. для большего приоритета)
+ 
+a.navbar-item 
+  // высота navbar
+  & img
+    max-height: 3rem !important
+  & .icon
+    color: $primary
+  & *
+    margin: 0 5px
+
+  .navbar-end &:last-of-type // селектор последней кнопки
+    border: 3px solid $r6ru-color-invert
+    margin-left: .5em
+    color: white !important
+    .navbar-top & // если страница в топе
+      &:hover, &:focus
+        background-color: $r6ru-color-invert
+    .navbar-scrolled & // если страница прокручена
+      background-color: $r6ru-color-invert
+      &:hover, &:focus
+        box-shadow: 0 0 .5em rgba(0, 0, 0, .5)
+
+  // подчеркивание при наведении на кнопки
+  &:hover, &:focus
+    background-color: inherit 
+    border-bottom: 3px solid $r6ru-color-invert
+  // кроме бренда
+  .navbar-brand &:hover, .navbar-brand &:focus
+    border-bottom: none
+
+.navbar-item, .navbar-burger
+  color: inherit !important
+
+.navbar-burger
+  height: 4rem !important
+
+.navbar
+  padding: .5em
+  &.navbar-top
+    color: white
+    background-color: transparent
+  &.navbar-scrolled
+    background-color: white
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .5)
+
+@media screen and (max-width: $desktop) 
+  // скругление бургер-меню на мобиле когда страница в топе
+  .navbar-menu
+    box-shadow: none !important
+    .navbar-top &
+      background-color: $body-color !important
+      border-radius: 1.5rem
+
+  // отмена границ и сдвига
+  a.navbar-item
+    // background-color: inherit !important
+    margin-left: 0 !important
+    &, &:hover
+      border: none !important
+    .navbar-top & // если страница в топе
+      &:hover, &:focus
+        background-color: inherit !important
+
+
 
 
 // responsiveness
