@@ -9,7 +9,7 @@ import logo from '../img/logo.png'
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
-    const active = Boolean(localStorage.getItem('burger-menu')) || false;
+    const active = Boolean(localStorage?.getItem('burger-menu')) || false;
     this.state = {
       active,
       navBarActiveClass: active ? 'is-active' : '',
@@ -17,7 +17,7 @@ const Navbar = class extends React.Component {
   }
 
   toggleHamburger = () => {
-    localStorage.setItem('burger-menu', !this.state.active)
+    void localStorage?.setItem('burger-menu', !this.state.active)
     this.setState(
       { active: !this.state.active },
       () => this.setState({navBarActiveClass: this.state.active ? 'is-active' : ''})
