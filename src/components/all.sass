@@ -151,7 +151,7 @@ div.social a *
 a.navbar-item 
   // высота navbar
   & img
-    max-height: 3rem !important
+    max-height: 3rem
   & .icon
     color: $primary
   & *
@@ -160,7 +160,7 @@ a.navbar-item
   .navbar-end &:last-of-type // селектор последней кнопки
     border: 3px solid $r6ru-color-invert
     margin-left: .5em
-    color: white !important
+    color: white
     .navbar-top & // если страница в топе
       &:hover, &:focus
         background-color: $r6ru-color-invert
@@ -178,12 +178,16 @@ a.navbar-item
     border-bottom: none
 
 .navbar-item, .navbar-burger
-  color: inherit !important
+  color: inherit
 
 .navbar-burger
-  height: 4rem !important
+  height: 4rem
 
+.columns
+  width: 100% !important
 .navbar
+  width: 100% !important // mobile horizontal overflow fix
+
   padding: .5em
   &.navbar-top
     color: white
