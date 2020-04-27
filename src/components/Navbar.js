@@ -9,7 +9,7 @@ import logo from '../img/logo.png'
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
-    const active = Boolean(localStorage?.getItem('burger-menu')) || false;
+    const active = Boolean(typeof localStorage !== `undefined` && localStorage?.getItem('burger-menu'));
     this.state = {
       active,
       navBarActiveClass: active ? 'is-active' : '',
