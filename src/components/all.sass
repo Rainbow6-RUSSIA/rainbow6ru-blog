@@ -76,8 +76,8 @@ $black: #2b2523
   width: 1.5rem
   height: 1.5rem
   fill: currentColor
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
+// .navbar-brand .navbar-item.logo
+//   padding: 0 1rem
 footer.footer
   padding: 1rem 0 0
   background-color: transparent
@@ -147,11 +147,16 @@ div.social a *
 @import "~bulma"
 
 // переопределение фреймворка (a. для большего приоритета)
- 
-a.navbar-item 
+
+.navbar-brand
   // высота navbar
   & img
     max-height: 3rem
+  & svg
+    fill: currentColor
+    height: 1.5rem
+
+a.navbar-item 
   & .icon
     color: $primary
   & *

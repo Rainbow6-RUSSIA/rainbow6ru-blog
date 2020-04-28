@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import logo from '../img/logo.png'
+import logoPNG from '../img/logo.png'
+import LogoSVG from '../img/logo.svg'
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -34,8 +35,8 @@ const Navbar = class extends React.Component {
         {/* <div className="container"> */}
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
-              <img src={logo} alt="Rainbow6-RUSSIA" />
-              <b>Rainbow6-RUSSIA</b>
+              <img src={logoPNG} alt="Rainbow6-RUSSIA" />
+              <LogoSVG />
             </Link>
             <div
               role="button"
