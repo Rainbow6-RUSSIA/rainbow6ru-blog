@@ -30,6 +30,7 @@ module.exports = {
         name: 'images',
       },
     },
+    'gatsby-plugin-react-svg',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
