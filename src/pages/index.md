@@ -59,4 +59,13 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
+streams:
+  - id: FaZebook
+    platform: twitch 
+  - id: Amedalook
+    platform: mixer
+  - id: Amedalook
+    platform: youtube
+  - id: Rainbow6RUSSIA
+    platform: twitch
 ---

@@ -14,6 +14,7 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
+  streams
 }) => (
   <div>
     <div
@@ -40,7 +41,7 @@ export const IndexPageTemplate = ({
                     <h1 className="title">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                    <h3 className="subtitle">{mainpitch.description}<br/>{streams.map(s => `${s.id}@${s.platform}`).join(', ')}</h3>
                   </div>
                 </div>
                 <div className="columns">
@@ -104,6 +105,8 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+
+        streams={frontmatter.streams}
       />
     </Layout>
   )
@@ -151,6 +154,10 @@ export const pageQuery = graphql`
           }
           heading
           description
+        }
+        streams {
+          id
+          platform
         }
       }
     }
