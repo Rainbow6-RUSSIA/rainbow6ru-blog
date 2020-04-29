@@ -6,7 +6,7 @@
         {
             "label": "Enable local backend",
             "type": "shell",
-            "command": "echo 'local_backend: true' >> ./static/admin/config.yml", // TODO: smart js script
+            "command": "node ./edit-config.js enable",
             "problemMatcher": []
         },
         {
@@ -26,10 +26,10 @@
         {
             "label": "Disable local backend",
             "type": "shell",
-            "command": "echo Hello3"
+            "command": "node ./edit-config.js disable"
         },
         {
-            "label": "Run devserver",
+            "label": "Run devservers",
             "dependsOn": [
                 "Run proxy",
                 "Run Gatsby devserver"
@@ -39,7 +39,7 @@
         {
             "label": "Run Development Workspace",
             "dependsOn": [
-                "Run devserver",
+                "Run devservers",
                 "Disable local backend"
             ],
             "dependsOrder": "sequence",

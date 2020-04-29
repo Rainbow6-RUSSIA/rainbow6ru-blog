@@ -59,6 +59,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "netlify-cli": "^2.48.0",
     "netlify-cms-proxy-server": "^1.2.6",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "yaml": "^1.9.2"
   }
 }
