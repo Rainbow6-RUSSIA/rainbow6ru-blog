@@ -1,0 +1,49 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Enable local backend",
+            "type": "shell",
+            "command": "echo 'local_backend: true' >> ./static/admin/config.yml", // TODO: smart js script
+            "problemMatcher": []
+        },
+        {
+            "label": "Run proxy",
+            "type": "npm",
+            "script": "start:proxy",
+            "isBackground": true,
+            "dependsOn": [
+                "Enable local backend"
+            ]
+        },
+        {
+            "label": "Run Gatsby devserver",
+            "type": "npm",
+            "script": "develop"
+        },
+        {
+            "label": "Disable local backend",
+            "type": "shell",
+            "command": "echo Hello3"
+        },
+        {
+            "label": "Run devserver",
+            "dependsOn": [
+                "Run proxy",
+                "Run Gatsby devserver"
+            ],
+            "dependsOrder": "parallel"
+        },
+        {
+            "label": "Run Development Workspace",
+            "dependsOn": [
+                "Run devserver",
+                "Disable local backend"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}
