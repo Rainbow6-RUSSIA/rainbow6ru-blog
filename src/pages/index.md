@@ -61,10 +61,10 @@ main:
     image: /img/products-grid1.jpg
 streams:
   - id: FaZebook
-    platform: twitch 
+    platform: twitch
   - id: Amedalook
     platform: mixer
-  - id: Amedalook
+  - id: YellowPlay
     platform: youtube
   - id: Rainbow6RUSSIA
     platform: twitch
