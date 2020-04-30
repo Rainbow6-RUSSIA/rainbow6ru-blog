@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import { IndexPageTemplate } from '../../templates/index-page'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { IndexPageTemplate } from '../../templates/index-page';
 
 const IndexPagePreview = ({ entry, getAsset }) => {
-  const data = entry.getIn(['data']).toJS()
+  const data = entry.getIn(['data']).toJS();
 
   if (data) {
     return (
@@ -16,7 +16,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         intro={data.intro || { blurbs: [] }}
         mainpitch={data.mainpitch || {}}
 
-        streams={data.streams || []}
+        streams={data.streams || { channels: [] } }
       />
     )
   } else {

@@ -2,9 +2,8 @@ import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 import BlogRoll from '../components/BlogRoll'
-import Features from '../components/Features'
 import Layout from '../components/Layout'
-
+import Streams from '../components/Streams'
 
 export const IndexPageTemplate = ({
   image,
@@ -41,18 +40,19 @@ export const IndexPageTemplate = ({
                     <h1 className="title">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}<br/>{streams.map(s => `${s.id}@${s.platform}`).join(', ')}</h3>
+                    <h3 className="subtitle">{mainpitch.description}</h3>
                   </div>
                 </div>
                 <div className="columns">
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
+                      {streams.heading}
                     </h3>
-                    <p>{description}</p>
+                    <p>{streams.description}</p>
                   </div>
                 </div>
-                <Features gridItems={intro.blurbs} />
+                {/* <Features gridItems={intro.blurbs} /> */}
+                <Streams items={streams.channels}/>
                 <div className="columns">
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/donate">
@@ -90,6 +90,15 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+
+  streams: PropTypes.shape({
+    heading: PropTypes.string,
+    description: PropTypes.string,
+    channels: PropTypes.shape({
+      id: PropTypes.string,
+      platform: PropTypes.oneOf(['twitch', 'mixer'])
+    })
+  })
 }
 
 const IndexPage = ({ data }) => {
@@ -156,8 +165,13 @@ export const pageQuery = graphql`
           description
         }
         streams {
-          id
-          platform
+          heading
+          description
+          channels {
+            id
+            platform
+            show
+          }
         }
       }
     }

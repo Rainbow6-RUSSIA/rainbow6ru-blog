@@ -1,20 +1,17 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Rainbow6-RUSSIA
 image: /img/discord-background.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+heading: Заголовок
+subheading: Это не просто Discord, а самое большое и уютное сообщество по Rainbow Six Siege
 mainpitch:
-  title: Why Rainbow6-RUSSIA
+  title: Почему Rainbow6-RUSSIA?
   description: >
-    Rainbow6-RUSSIA is the coffee store for everyone who believes that great
-    coffee shouldn't just taste good, it should do good too. We source all of
-    our beans directly from small scale sustainable farmers and make sure part
-    of the profits are reinvested in their communities.
-description: Rainbow6-RUSSIA is the ultimate spot for coffee lovers who want to
-  learn about their java’s origin and support the farmers that grew it. We take
-  coffee production, roasting and brewing seriously and we’re glad to pass that
-  knowledge to anyone.
+    С нами уже более 39 000 игроков, онлайн свыше 16 000 человек и более чем 200
+    одновременно играющих в пик человек 🐯
+
+    Конкурсы с весёлым тамадой, не спящая администрация, которая в любой момент спасёт от токсиков и различные чаты не дадут тебе заскучать!
+description: Opisanie
 intro:
   blurbs:
     - image: /img/coffee.png
@@ -24,19 +21,6 @@ intro:
         variety of coffee beans grown with great care for the environment and
         local communities. Check our post or contact us directly for current
         availability.
-    - image: /img/coffee-gear.png
-      text: >
-        We offer a small, but carefully curated selection of brewing gear and
-        tools for every taste and experience level. No matter if you roast your
-        own beans or just bought your first french press, you’ll find a gadget
-        to fall in love with in our shop.
-    - image: /img/tutorials.png
-      text: >
-        Love a great cup of coffee, but never knew how to make one? Bought a
-        fancy new Chemex but have no clue how to use it? Don't worry, we’re here
-        to help. You can schedule a custom 1-on-1 consultation with our baristas
-        to learn anything you want to know about coffee roasting and brewing.
-        Email us or call the store for details.
   heading: What we offer
   description: >
     Rainbow6-RUSSIA is the ultimate spot for coffee lovers who want to learn
@@ -60,12 +44,16 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 streams:
-  - id: FaZebook
-    platform: twitch
-  - id: Amedalook
-    platform: mixer
-  - id: YellowPlay
-    platform: youtube
-  - id: Rainbow6RUSSIA
-    platform: twitch
+  heading: Стримы
+  description: Подпишитесь на наши каналы и каналы друзей
+  channels:
+    - id: FaZebook
+      platform: twitch
+    - id: Amedalook
+      platform: mixer
+    - id: yellowplaytv
+      platform: twitch
+    - id: Rainbow6RUSSIA
+      platform: twitch
+      show: true
 ---

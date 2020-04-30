@@ -140,18 +140,33 @@ collections:
                     widget: string
           - label: Streams
             name: streams
-            widget: list
+            widget: object
             fields:
-              - label: Id
-                name: id
+              - label: Heading
+                name: heading
                 widget: string
-              - label: Platform
-                name: platform
-                widget: select
-                options:
-                  - twitch
-                  - youtube
-                  - mixer
+              - label: Description
+                name: description
+                widget: string
+              - label: Channels
+                name: channels
+                widget: list
+                fields:
+                  - label: Id
+                    name: id
+                    widget: string
+                  - label: Platform
+                    name: platform
+                    widget: select
+                    options:
+                      - twitch
+                      - youtube
+                      - mixer
+                  - label: Always show
+                    name: show
+                    widget: boolean
+                    default: false
+                    required: false
       - file: src/pages/about/index.md
         label: About
         name: about
