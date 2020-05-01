@@ -51,11 +51,12 @@
     "clean": "gatsby clean",
     "start": "npm run develop",
     "start:proxy": "netlify-cms-proxy-server",
-    "build": "npm run clean && gatsby build",
+    "build": "node ./edit-config.js disable && npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop -H 0.0.0.0",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "node ./edit-config.js disable && npm run build && netlify deploy --open"
+    "deploy": "npm run build && netlify deploy --open",
+    "deploy:prod": "npm run build && netlify deploy --prod"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

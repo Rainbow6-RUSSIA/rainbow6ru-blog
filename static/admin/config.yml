@@ -152,9 +152,13 @@ collections:
                 name: channels
                 widget: list
                 fields:
-                  - label: Id
-                    name: id
+                  - label: Name
+                    name: name
                     widget: string
+                  - label: Id (for Twitch)
+                    name: id
+                    widget: number
+                    required: false
                   - label: Platform
                     name: platform
                     widget: select

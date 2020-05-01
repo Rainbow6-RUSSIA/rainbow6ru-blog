@@ -40,19 +40,27 @@ streams:
   heading: Стримы
   description: Подпишитесь на наши каналы и каналы друзей
   channels:
-    - id: Rainbow6RUSSIA
+    - id: 218276180
+      name: Rainbow6RUSSIA
       platform: twitch
       show: true
-    - id: BigLongFatGun
+    - show: false
+      name: ScytherR6
+      id: 154266540
+      platform: twitch
+    - id: 125573753
+      name: Rainbow6RU
+      platform: twitch
+      show: true
+    - id: 105264259
+      name: BigLongFatGun
       platform: twitch
       show: false
-    - show: false
-      id: Rainbow6RU
-      platform: twitch
-    - id: Amedalook
+    - name: Amedalook
       platform: mixer
       show: false
-    - id: FaZebook
+    - id: 103500532
+      name: FaZebook
       platform: twitch
       show: false
 ---

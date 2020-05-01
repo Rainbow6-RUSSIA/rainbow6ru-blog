@@ -241,8 +241,14 @@ a.navbar-item
     margin-bottom: .5em
   & article > a > span
     margin-left: .25em
-  & .player-stub
-    background-color: red
+
+.player-stub
+    background-color: rgba(0, 0, 0, 0.2)
+    background-position: top center
+    display: grid
+    & span 
+      margin: auto 0
+      line-height: normal
 
 @media screen and (min-width: $tablet) // браузер
   .streams
