@@ -13,14 +13,7 @@ mainpitch:
     Конкурсы с весёлым тамадой, не спящая администрация, которая в любой момент спасёт от токсиков и различные чаты не дадут тебе заскучать!
 description: Opisanie
 intro:
-  blurbs:
-    - image: /img/coffee.png
-      text: >
-        We sell green and roasted coffee beans that are sourced directly from
-        independent farmers and farm cooperatives. We’re proud to offer a
-        variety of coffee beans grown with great care for the environment and
-        local communities. Check our post or contact us directly for current
-        availability.
+  blurbs: []
   heading: What we offer
   description: >
     Rainbow6-RUSSIA is the ultimate spot for coffee lovers who want to learn
@@ -47,13 +40,13 @@ streams:
   heading: Стримы
   description: Подпишитесь на наши каналы и каналы друзей
   channels:
-    - id: FaZebook
-      platform: twitch
-    - id: Amedalook
-      platform: mixer
-    - id: yellowplaytv
-      platform: twitch
     - id: Rainbow6RUSSIA
       platform: twitch
       show: true
+    - id: BigLongFatGun
+      platform: twitch
+    - id: Amedalook
+      platform: mixer
+    - id: FaZebook
+      platform: twitch
 ---

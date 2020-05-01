@@ -160,7 +160,6 @@ collections:
                     widget: select
                     options:
                       - twitch
-                      - youtube
                       - mixer
                   - label: Always show
                     name: show

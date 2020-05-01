@@ -6,6 +6,9 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS();
 
   if (data) {
+    const streams = data.streams || { channels: [] }
+    streams.preview = true;
+
     return (
       <IndexPageTemplate
         image={getAsset(data.image)}
@@ -16,7 +19,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         intro={data.intro || { blurbs: [] }}
         mainpitch={data.mainpitch || {}}
 
-        streams={data.streams || { channels: [] } }
+        streams={streams}
       />
     )
   } else {

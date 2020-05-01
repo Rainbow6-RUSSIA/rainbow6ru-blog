@@ -52,7 +52,7 @@ export const IndexPageTemplate = ({
                   </div>
                 </div>
                 {/* <Features gridItems={intro.blurbs} /> */}
-                <Streams items={streams.channels}/>
+                <Streams preview={streams.preview} items={streams.channels}/>
                 <div className="columns">
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/donate">
@@ -62,12 +62,12 @@ export const IndexPageTemplate = ({
                 </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                    Последние новости
                   </h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
-                      Read more
+                      Читать далее
                     </Link>
                   </div>
                 </div>
@@ -94,10 +94,12 @@ IndexPageTemplate.propTypes = {
   streams: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
-    channels: PropTypes.shape({
-      id: PropTypes.string,
-      platform: PropTypes.oneOf(['twitch', 'mixer'])
-    })
+    channels: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        platform: PropTypes.oneOf(['twitch', 'mixer'])
+      })
+    )
   })
 }
 
