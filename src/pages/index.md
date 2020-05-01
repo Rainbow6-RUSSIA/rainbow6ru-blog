@@ -45,8 +45,14 @@ streams:
       show: true
     - id: BigLongFatGun
       platform: twitch
+      show: false
+    - show: false
+      id: Rainbow6RU
+      platform: twitch
     - id: Amedalook
       platform: mixer
+      show: false
     - id: FaZebook
       platform: twitch
+      show: false
 ---

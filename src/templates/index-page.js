@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { isMobile } from 'react-device-detect'
 import BlogRoll from '../components/BlogRoll'
 import Layout from '../components/Layout'
 import Streams from '../components/Streams'
@@ -48,10 +49,9 @@ export const IndexPageTemplate = ({
                     <h3 className="has-text-weight-semibold is-size-2">
                       {streams.heading}
                     </h3>
-                    <p>{streams.description}</p>
+                    <p>{streams.description}{isMobile ? 'Mobile' : 'Browser'}</p>
                   </div>
                 </div>
-                {/* <Features gridItems={intro.blurbs} /> */}
                 <Streams preview={streams.preview} items={streams.channels}/>
                 <div className="columns">
                   <div className="column is-12 has-text-centered">

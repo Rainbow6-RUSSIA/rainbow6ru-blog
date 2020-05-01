@@ -2,10 +2,10 @@ import { faMixer, faTwitch } from '@fortawesome/free-brands-svg-icons'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import { isMobile } from 'react-device-detect'
-import { MixerPlayer } from 'react-mixer-embeds'
-import TwitchPlayer from 'react-twitch-embed-video'
+
+let Player = null
 
 const Link = ({ platform, id, children }) => {
     const url = 
@@ -19,15 +19,8 @@ const Icon = ({ platform }) => {
         platform === 'mixer' ? <FontAwesomeIcon style={{height: '1em', width: '1em' }} icon={faMixer} /> : null
 }
 
-const Player = ({ platform, id }) => {
-    const EmbedPlayer = 
-        platform === 'twitch' ? ({ ...args }) => <TwitchPlayer layout="video" targetId={`tw-${args.channel.toLowerCase()}`} {...args}/> :
-        platform === 'mixer' ? ({ ...args }) => <MixerPlayer {...args}/> : null
-    return <EmbedPlayer muted height={180} width={320} channel={id} />
-}
-
 const Stream = ({ item }) => (
-    <article className="tile is-child box">
+    <article className="column">
         <Link {...item}>
             <Icon platform={item.platform} />
             <span>{item.id}</span>
@@ -37,17 +30,17 @@ const Stream = ({ item }) => (
 )
 
 const SimpleStream = ({ item }) => (
-    <article className="tile is-child box">
+    <article className="column">
         <Link {...item}>
             <Icon platform={item.platform} />
             <span>{item.id}</span>
         </Link>
-        <div style={{ backgroundColor: 'red' }} />
+        <div className="player-stub"/>
     </article>
 )
 
 const Loading = () => (
-    <article className="tile is-child box">
+    <article className="column">
         <div>
             <FontAwesomeIcon style={{height: '3em', width: '3em' }} icon={faSpinner} spin/>
         </div>
@@ -55,6 +48,7 @@ const Loading = () => (
 )
 
 async function fetchMixer(channels) {
+    channels = channels.filter(s => s.platform === 'mixer').map(s => s.id)
     if (!channels.length) { return [] }
     const res = await fetch(`https://mixer.com/api/v1/channels?fields=token,online,bannerUrl,viewersCurrent,type&where=token:in:${channels.join(';')}`, {
         headers: { 'Client-ID': process.env.GATSBY_MIXER_CLIENT_ID }
@@ -73,6 +67,7 @@ async function fetchMixer(channels) {
 }
 
 async function fetchTwitch(channels) {
+    channels = channels.filter(s => s.platform === 'twitch').map(s => s.id)
     if (!channels.length) { return [] }
     const res = await fetch(`https://api.twitch.tv/helix/streams?user_login=${channels.join('&user_login=')}`, {
         headers: { 'Client-ID': process.env.GATSBY_TWITCH_CLIENT_ID }
@@ -91,9 +86,9 @@ async function fetchTwitch(channels) {
 }
 
 const PreviewWrapper = ({ items, preview }) => {
-    if (preview) {
+    if (preview || typeof window === 'undefined') {
         return (
-            <div className="tile is-ancestor streams">
+            <div className="columns streams">
                 {items.map(i => <SimpleStream key={i.id} item={i} />)}
             </div>
         )
@@ -102,26 +97,32 @@ const PreviewWrapper = ({ items, preview }) => {
     }
 }
 
+const reducer = (state, action) => {
+    switch (true) {
+        case typeof action === 'string': return state.map(i => i.platform === action ? {...i, fetched: true} : i)
+        case Array.isArray(action): return state.map(i => ({ ...i, ...action.find(r => r.id === i.id && r.platform === i.platform) }))
+    }
+}
+
 const Streams = ({ items }) => {
 
-    const [streams, setStreams] = useState(() => items.map(i => ({...i, fetched: false})));
-
-    const callback = res => setStreams((prev) =>
-        prev.map(item => ({ ...item, ...res.find(r => r.id === item.id && r.platform === item.platform) }))
-    );
-    const finallyCb = platform => setStreams(streams.map(item => ({ ...item, fetched: item.platform === platform || item.fetched })))
+    const [state, dispatch] = useReducer(reducer, items.map(i => ({...i, fetched: false})))
+    const [playerLoaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        fetchMixer(streams.filter(s => s.platform === 'mixer').map(s => s.id)).then(callback).finally(finallyCb('mixer'))
-        fetchTwitch(streams.filter(s => s.platform === 'twitch').map(s => s.id)).then(callback).finally(finallyCb('twitch'))
-    }, []) // Refactor to hide offline Mixer
-
-    console.log(streams);
+        import("./Player")
+            .then(module => {
+                Player = module.default;
+                setLoaded(true)
+                fetchMixer(state).then(dispatch).finally(() => dispatch('mixer'))
+                fetchTwitch(state).then(dispatch).finally(() => dispatch('twitch'))
+            })
+    }, [])
 
     return (
-        <div className="tile is-ancestor streams"> {/* Rework to columns */}
-            {streams.map(i => 
-                !i.fetched
+        <div className="columns streams"> {/* Rework to columns */}
+            {state.map(i => 
+                playerLoaded && !i.fetched
                     ? <Loading key={i.id} />
                     : i.online
                         ? isMobile

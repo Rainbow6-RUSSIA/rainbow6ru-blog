@@ -220,24 +220,51 @@ a.navbar-item
       &:hover, &:focus
         background-color: inherit !important
 
-@media screen and (min-width: $desktop) 
-  .streams
-    overflow-x: auto
+// Блок стримов
 
 .streams
-  & article > div
+  // display: flex
+  & article
+    // background-color: #00d1b2
+    box-shadow: .25em .25em .5em rgba(0, 0, 0, 0.5)
+    border-radius: 1em
+    margin: .5em
+    height: 100%
+  & article > div // спиннер загрузки
     height: 180px
     line-height: 180px
-    max-width: 320px
-    min-width: 240px
     text-align: center
     vertical-align: middle
   & article > a.title
     display: block
     font-size: 1.5em
-    margin-bottom: .5em 
+    margin-bottom: .5em
   & article > a > span
     margin-left: .25em
+  & .player-stub
+    background-color: red
+
+@media screen and (min-width: $tablet) // браузер
+  .streams
+    overflow-x: auto
+    & article
+      width: 100%
+    & article > div
+      width: 320px
+      height: 180px
+
+@media screen and (max-width: $tablet) // мобильный
+  .streams
+    & article
+      max-width: calc( 320px + 1.5rem )
+      min-width: calc( 240px + 1.5rem )
+    & article > div
+      max-width: 320px
+      min-width: 240px
+      // margin-left: auto
+      // margin-right: auto
+    & article > a.title
+      text-align: center
 
 // responsiveness
 +tablet-only
