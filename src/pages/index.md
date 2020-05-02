@@ -44,23 +44,23 @@ streams:
       name: Rainbow6RUSSIA
       platform: twitch
       show: true
-    - show: false
-      name: ScytherR6
-      id: 154266540
-      platform: twitch
-    - id: 125573753
-      name: Rainbow6RU
-      platform: twitch
-      show: true
     - id: 105264259
       name: BigLongFatGun
       platform: twitch
       show: false
-    - name: Amedalook
-      platform: mixer
-      show: false
     - id: 103500532
       name: FaZebook
       platform: twitch
+      show: true
+    - name: Amedalook
+      platform: mixer
       show: false
+    - id: 125573753
+      name: Rainbow6RU
+      platform: twitch
+      show: false
+    - show: false
+      name: ScytherR6
+      id: 154266540
+      platform: twitch
 ---
