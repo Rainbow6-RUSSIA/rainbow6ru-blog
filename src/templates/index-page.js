@@ -40,7 +40,7 @@ export const IndexPageTemplate = ({
                     <h1 className="title">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                    <h4 className="subtitle">{mainpitch.description.slice(0, -1).split('\n').map((text, i, arr) => <>{text}{i !== arr.length ? <br/> : null}</>)}</h4>
                   </div>
                 </div>
                 <div className="columns">
