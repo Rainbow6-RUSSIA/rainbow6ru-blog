@@ -1,11 +1,12 @@
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
-import { faDonate, faInfoCircle, faNewspaper, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+import { faDonate, faDoorOpen, faInfoCircle, faNewspaper, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 import logoPNG from '../img/logo.png'
 import LogoSVG from '../img/logo.svg'
+import { auth } from '../utils/auth'
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ const Navbar = class extends React.Component {
     this.state = {
       active,
       navBarActiveClass: active ? 'is-active' : '',
+      loggedIn: auth.loggedIn()
     }
   }
 
@@ -23,6 +25,18 @@ const Navbar = class extends React.Component {
       { active: !this.state.active },
       () => this.setState({navBarActiveClass: this.state.active ? 'is-active' : ''})
     )
+  }
+
+  handleLogin = async () => {
+    if (auth.loggedIn()) {
+      auth.logout();
+    } else {
+      console.log(await auth.tryLoginPopup())
+      console.log(await auth.token())
+    }
+    this.setState({
+      loggedIn: auth.loggedIn()
+    })
   }
 
   render() {
@@ -71,13 +85,12 @@ const Navbar = class extends React.Component {
             </div>
             <div className="navbar-end">
               <a
-                className="navbar-item is-disabled"
-                target="_blank"
-                rel="noopener noreferrer"
-                // href="about"
+                className="navbar-item"
+                onClick={this.handleLogin}
+                alt={this.state.loggedIn ? 'Выход' : 'Вход'}
               >
-                <FontAwesomeIcon icon={faSignInAlt}/>
-                Вход (скоро)
+                <FontAwesomeIcon icon={this.state.loggedIn ? faDoorOpen : faSignInAlt}/>
+                {this.state.loggedIn ? `${auth.user.username}#${auth.user.discriminator}` : 'Вход'}
               </a>
               <a className="navbar-item" href="https://discord.gg/r6ru">
                 <FontAwesomeIcon icon={faDiscord}/>

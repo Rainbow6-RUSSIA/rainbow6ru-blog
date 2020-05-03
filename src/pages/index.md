@@ -7,7 +7,8 @@ subheading: Это не просто Discord, а самое большое и у
 mainpitch:
   title: Почему Rainbow6-RUSSIA?
   description: >
-    С нами уже более 39 000 игроков, онлайн свыше 16 000 человек и более чем 200 одновременно играющих в пик человек.
+    С нами уже более 39 000 игроков, онлайн свыше 16 000 человек и более чем 200
+    одновременно играющих в пик человек.
 
     Конкурсы с весёлым тамадой, не спящая администрация, которая в любой момент спасёт от токсиков и различные чаты не дадут тебе заскучать!
 description: Opisanie
@@ -43,23 +44,8 @@ streams:
       name: Rainbow6RUSSIA
       platform: twitch
       show: true
-    - id: 105264259
-      name: BigLongFatGun
-      platform: twitch
-      show: false
     - id: 103500532
       name: FaZebook
       platform: twitch
       show: true
-    - name: Amedalook
-      platform: mixer
-      show: false
-    - id: 125573753
-      name: Rainbow6RU
-      platform: twitch
-      show: false
-    - show: false
-      name: ScytherR6
-      id: 154266540
-      platform: twitch
 ---
