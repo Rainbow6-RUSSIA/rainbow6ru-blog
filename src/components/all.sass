@@ -3,7 +3,8 @@
 // Config vars
 // Rainbow6-RUSSIA logo brand color: #FD461E
 $r6ru-color: #363636
-$r6ru-color-invert: #e69800
+$r6ru-color-invert: #d52b1e
+$r6ru-flag: linear-gradient(to bottom, white 33.3%, #0039a6 33.3% 66.6%, #d52b1e 66.6% 100%)
 
 $primary: $r6ru-color
 $primary-invert: $r6ru-color-invert
@@ -163,16 +164,19 @@ a.navbar-item
     margin: 0 5px
 
   .navbar-end &:last-of-type // селектор последней кнопки
-    border: 3px solid $r6ru-color-invert
+    border-width: 3px
+    border-style: solid
+    border-image: $r6ru-flag 1%
     margin-left: .5em
     color: white
     .navbar-top & // если страница в топе
       &:hover, &:focus
-        background-color: $r6ru-color-invert
+        background-image: $r6ru-flag
     .navbar-scrolled & // если страница прокручена
-      background-color: $r6ru-color-invert
+      background-image: $r6ru-flag
+      box-shadow: 0 0 .25em rgba(0, 0, 0, .5)
       &:hover, &:focus
-        box-shadow: 0 0 .5em rgba(0, 0, 0, .5)
+        box-shadow: 0 0 .75em rgba(0, 0, 0, .5)
 
   // подчеркивание при наведении на кнопки
   &:hover, &:focus
@@ -214,12 +218,14 @@ a.navbar-item
   a.navbar-item
     // background-color: inherit !important
     margin-left: 0 !important
+    color: inherit !important
     &, &:hover
       border: none !important
+      background-image: unset !important
     .navbar-top & // если страница в топе
       &:hover, &:focus
         background-color: inherit !important
-
+        
 // Блок стримов
 
 .streams
