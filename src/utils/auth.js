@@ -53,7 +53,7 @@ Object.defineProperties(OAuth2PopupFlow.prototype, {
     user: {
         get: function() {
             const user = this.storage.getItem('user')
-            return user ? JSON.parse(user) : null
+            return user && user !== 'undefined' ? JSON.parse(user) : null
         }
     }
 })

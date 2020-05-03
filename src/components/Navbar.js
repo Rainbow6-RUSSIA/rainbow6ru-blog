@@ -86,11 +86,12 @@ const Navbar = class extends React.Component {
             <div className="navbar-end">
               <a
                 className="navbar-item"
+                tabIndex="0"
                 onClick={this.handleLogin}
                 alt={this.state.loggedIn ? 'Выход' : 'Вход'}
               >
                 <FontAwesomeIcon icon={this.state.loggedIn ? faDoorOpen : faSignInAlt}/>
-                {this.state.loggedIn ? `${auth.user.username}#${auth.user.discriminator}` : 'Вход'}
+                {this.state.loggedIn ? auth.user ? `${auth.user.username}#${auth.user.discriminator}` : 'Выход' : 'Вход'}
               </a>
               <a className="navbar-item" href="https://discord.gg/r6ru">
                 <FontAwesomeIcon icon={faDiscord}/>

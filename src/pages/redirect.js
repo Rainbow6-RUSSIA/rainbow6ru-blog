@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
+import '../components/all.sass';
 import { auth } from "../utils/auth";
-import './all.sass';
 
 const Redirect = () => {
 
-    useEffect(async () => {
-        console.log(await auth.handleRedirect());
+    useEffect(() => {
+       auth.handleRedirect();
     }, [])
 
     return (
