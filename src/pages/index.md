@@ -44,6 +44,10 @@ streams:
       name: Rainbow6RUSSIA
       platform: twitch
       show: true
+    - id: 105264259
+      name: BigLongFatGun
+      platform: twitch
+      show: false
     - id: 103500532
       name: FaZebook
       platform: twitch
