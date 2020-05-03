@@ -24,6 +24,8 @@ Object.defineProperties(OAuth2PopupFlow.prototype, {
     },
     loggedIn: {
         value: function() {
+            if (typeof window === 'undefined') return false
+
             const decodedPayload = this._rawTokenPayload;
             if (!decodedPayload) return false;
         
@@ -60,7 +62,8 @@ Object.defineProperties(OAuth2PopupFlow.prototype, {
 export const auth = new OAuth2PopupFlow({
     authorizationUri: 'https://discordapp.com/api/oauth2/authorize',
     clientId: process.env.GATSBY_DISCORD_CLIENT_ID,
-    redirectUri: 'http://localhost:8000/redirect',
+    storage: typeof window === 'undefined' ? {} : window.localStorage,
+    redirectUri: process.env.GATSBY_DISCORD_CALLBACK_URI,
     responseType: 'code',
     scope: 'identify email guilds',
     additionalAuthorizationParameters: {
@@ -68,9 +71,6 @@ export const auth = new OAuth2PopupFlow({
         prompt: 'none'
     }
 })
-
-window.auth = auth
-window.OAuth2PopupFlow = OAuth2PopupFlow
 
 auth.addEventListener('login', console.log)
 auth.addEventListener('logout', console.log)
