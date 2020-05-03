@@ -11,7 +11,7 @@ const Link = ({ platform, name, children, ...args }) => {
     const url = 
         platform === 'twitch' ? `https://twitch.tv/${name}` :
         platform === 'mixer' ? `https://mixer.com/${name}` : ''
-    return <a {...args} href={url}>{children}</a>
+    return <a className={args.className} href={url}>{children}</a>
 }
 
 const Icon = ({ platform }) => {

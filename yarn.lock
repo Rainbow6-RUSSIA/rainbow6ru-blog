@@ -12341,6 +12341,11 @@ oauth-sign@~0.9.0:
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
 
+oauth2-popup-flow@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/oauth2-popup-flow/-/oauth2-popup-flow-1.1.0.tgz#0013eafe3d4650b1a44ef42eac3a952149309a66"
+  integrity sha512-JuCXiGPck2h+KWa+c+EGcCmxJb8635c/wf37TRM2aYZd5/3OSLcxzKy62ahB88gl4kP99yIC084oJNm1Wr4+og==
+
 object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
