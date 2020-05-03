@@ -10,12 +10,12 @@ const Redirect = () => {
 
     return (
         <div style={{ padding: '2em' }}>
-            <section class="hero is-primary">
-                <div class="hero-body">
-                    <h1 class="title">
+            <section className="hero">
+                <div className="hero-body">
+                    <h1 className="title">
                         Перенаправление назад
                     </h1>
-                    <h2 class="subtitle">
+                    <h2 className="subtitle">
                         Вы можете закрыть окно если оно не закрылось самостоятельно
                     </h2>
                 </div>
