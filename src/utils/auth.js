@@ -16,10 +16,14 @@ Object.defineProperties(OAuth2PopupFlow.prototype, {
 
             const res = await fetch(process.env.GATSBY_AUTH_SERVER + '?' + params)
             const { user, token } = await res.json();
-            console.log(user, token)
-            this._rawToken = token;
-            this.storage.setItem('user', JSON.stringify(user));
-            return 'SUCCESS';
+            if (res.status === 200) {
+                this._rawToken = token;
+                this.storage.setItem('user', JSON.stringify(user));
+                return 'SUCCESS';
+            } else {
+                return `CODE-${res.status}`;
+            }
+                
         }
     },
     loggedIn: {
