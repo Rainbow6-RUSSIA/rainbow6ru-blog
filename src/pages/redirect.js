@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { auth } from "../utils/auth";
+import './all.sass';
 
 const Redirect = () => {
 
