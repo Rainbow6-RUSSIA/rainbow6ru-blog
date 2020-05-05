@@ -185,13 +185,13 @@ collections:
             name: body
             widget: markdown
       - file: src/pages/donate/index.md
-        label: Products Page
-        name: products
+        label: Donate Page
+        name: donate
         fields:
           - label: Template Key
             name: templateKey
             widget: hidden
-            default: product-page
+            default: donate-page
           - label: Title
             name: title
             widget: string
