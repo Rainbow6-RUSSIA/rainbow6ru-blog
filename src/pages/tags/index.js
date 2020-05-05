@@ -1,7 +1,7 @@
-import React from 'react'
+import { graphql, Link } from 'gatsby'
 import { kebabCase } from 'lodash'
+import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 
 const TagsPage = ({
@@ -14,14 +14,14 @@ const TagsPage = ({
 }) => (
   <Layout>
     <section className="section">
-      <Helmet title={`Tags | ${title}`} />
+      <Helmet title={`Теги | ${title}`} />
       <div className="container content">
         <div className="columns">
           <div
             className="column is-10 is-offset-1"
             style={{ marginBottom: '6rem' }}
           >
-            <h1 className="title is-size-2 is-bold-light">Tags</h1>
+            <h1 className="title is-size-2 is-bold-light">Теги</h1>
             <ul className="taglist">
               {group.map(tag => (
                 <li key={tag.fieldValue}>

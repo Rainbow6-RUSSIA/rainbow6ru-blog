@@ -1,6 +1,6 @@
+import { graphql, Link } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 class TagRoute extends React.Component {
@@ -16,9 +16,18 @@ class TagRoute extends React.Component {
     const tag = this.props.pageContext.tag
     const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
-    const tagHeader = `${totalCount} post${
-      totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”`
+    let postfix;
+    switch (totalCount % 10) {
+      case 1: postfix = ''
+        break;
+      case 2:
+      case 3:
+      case 4: postfix = 'a'
+        break;
+      default: postfix = 'ов'
+        break;
+    }
+    const tagHeader = `${totalCount} пост${postfix} с тегом “${tag}”`
 
     return (
       <Layout>
@@ -33,7 +42,7 @@ class TagRoute extends React.Component {
                 <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
                 <ul className="taglist">{postLinks}</ul>
                 <p>
-                  <Link to="/tags/">Browse all tags</Link>
+                  <Link to="/tags/">Ко всем тегам</Link>
                 </p>
               </div>
             </div>

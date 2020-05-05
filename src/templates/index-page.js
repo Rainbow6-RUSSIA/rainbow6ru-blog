@@ -18,7 +18,7 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <div
-      className="full-width-image margin-top-0 index-banner"
+      className="full-width-image margin-top-0 bg-banner"
       style={{ backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})` }}
     >
       <div className="index-title">
