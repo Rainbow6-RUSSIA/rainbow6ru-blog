@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Rainbow6-RUSSIA
-image: /img/discord-background.jpg
+image: /img/siege-bar.jpg
 heading: Заголовок
 subheading: Это не просто Discord, а самое большое и уютное сообщество по Rainbow Six Siege
 mainpitch:

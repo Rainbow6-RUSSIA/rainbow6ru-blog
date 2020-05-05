@@ -1,5 +1,5 @@
 ---
-templateKey: 'product-page'
+templateKey: 'donate-page'
 path: /donate
 title: Our Coffee
 image: /img/jumbotron.jpg
