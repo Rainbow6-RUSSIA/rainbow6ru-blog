@@ -1,15 +1,20 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
-// Rainbow6-RUSSIA logo brand color: #FD461E
 $r6ru-color: #363636
 $r6ru-color-invert: #d52b1e
 $r6ru-flag: linear-gradient(to bottom, white 33.3%, #0039a6 33.3% 66.6%, #d52b1e 66.6% 100%)
 
-$primary: $r6ru-color
-$primary-invert: $r6ru-color-invert
-$body-color: #333
-$black: #2b2523
+$bg: #222
+$bg-navbar: $r6ru-color
+
+$primary: $cyan
+// $primary-invert: $r6ru-color-invert
+// $body-color: #333
+// $black: #2b2523
+$background: $r6ru-color
+$text: white
+$link-hover: #ccc
 
 // .navbar .navbar-menu
 //   box-shadow:none !important
@@ -83,9 +88,10 @@ footer.footer
   padding: 1rem 0 0
   background-color: transparent
 
-.index-banner
+.bg-banner
   background-position: top center
   background-attachment: fixed
+  background-size: auto
 
 .index-title 
   line-height: 1
@@ -147,7 +153,21 @@ div.social a *
 
 @import "~bulma"
 
-// переопределение фреймворка (a. для большего приоритета)
+// переопределение фреймворка (для большего приоритета)
+
+html
+  background-color: $bg
+  color: white
+
+h1, h2, h3, h4, h5, h6
+  .content &
+    color: inherit
+
+div.has-navbar-fixed-top > section.section:first-child // увеличенный отступ для страниц без баннера
+    padding-top: 8em
+
+.title
+  color: inherit
 
 .navbar-brand
   // высота navbar
@@ -157,83 +177,82 @@ div.social a *
     fill: currentColor
     height: 1.5rem
 
-a.navbar-item 
-  & .icon
-    color: $primary
-  & *
-    margin: 0 5px
-
-  .navbar-end &:last-of-type // селектор последней кнопки
-    border-width: 3px
-    border-style: solid
-    border-image: $r6ru-flag 1%
-    margin-left: .5em
-    color: white
-    .navbar-top & // если страница в топе
-      &:hover, &:focus
-        background-image: $r6ru-flag
-    .navbar-scrolled & // если страница прокручена
-      background-image: $r6ru-flag
-      box-shadow: 0 0 .25em rgba(0, 0, 0, .5)
-      &:hover, &:focus
-        box-shadow: 0 0 .75em rgba(0, 0, 0, .5)
-
-  // подчеркивание при наведении на кнопки
-  &:hover, &:focus
-    background-color: inherit
-    color: inherit
-    border-bottom: 3px solid $r6ru-color-invert
-  // кроме бренда
-  .navbar-brand &:hover, .navbar-brand &:focus
-    border-bottom: none
-
-.navbar-item, .navbar-burger
-  color: inherit
-
 .navbar-burger
   height: 4rem
+  color: inherit
 
 .columns
   width: 100% !important
 .navbar
   width: 100% !important // mobile horizontal overflow fix
-
   padding: .5em
+  color: white
   &.navbar-top
-    color: white
     background-color: transparent
   &.navbar-scrolled
-    background-color: white
-    box-shadow: 0 0 .5em rgba(0, 0, 0, .5)
+    background-color: $bg-navbar
+    box-shadow: 0 -2px .5em rgba(0, 0, 0, 1)
 
-@media screen and (max-width: $desktop) 
+a.navbar-item 
+  color: inherit
+  & .icon
+    color: $primary
+  & *
+    margin: 0 5px
+
++desktop
+  a.navbar-item
+    .navbar-end &:last-of-type // селектор последней кнопки
+      border-width: 3px
+      border-style: solid
+      border-image: $r6ru-flag 1%
+      margin-left: .5em
+      .navbar-top & // если страница в топе
+        &:hover, &:focus
+          background-image: $r6ru-flag
+      .navbar-scrolled & // если страница прокручена
+        background-image: $r6ru-flag
+        &:hover, &:focus
+          box-shadow: 0 -2px .75em rgba(0, 0, 0, 1)
+
+    // подчеркивание при наведении на кнопки
+    &:hover, &:focus
+      background-color: inherit
+      color: inherit
+      border-bottom: 3px solid $r6ru-color-invert
+    // кроме бренда
+    .navbar-brand &
+      &:hover, &:focus
+        border-bottom: none
+
++touch
   // скругление бургер-меню на мобиле когда страница в топе
   .navbar-menu
-    box-shadow: none !important
+    box-shadow: none
+    background-color: $bg-navbar
     .navbar-top &
-      background-color: $body-color !important
       border-radius: 1.5rem
 
   // отмена границ и сдвига
   a.navbar-item
     // background-color: inherit !important
-    margin-left: 0 !important
-    color: inherit !important
-    box-shadow: none !important
+    margin-left: 0
+    color: inherit
+    box-shadow: none
     &, &:hover
-      border: none !important
-      background-image: unset !important
+      border: none
+      background-image: unset
     .navbar-top & // если страница в топе
       &:hover, &:focus
-        background-color: inherit !important
-        
+        background-color: inherit
+
 // Блок стримов
 
 .streams
   // display: flex
   & article
-    // background-color: #00d1b2
-    box-shadow: .25em .25em .5em rgba(0, 0, 0, 0.5)
+    background-color: $background
+    // box-shadow: -.25em -.25em .5em rgba(0, 0, 0, 1)
     border-radius: 1em
     margin: .5em
     height: 100%
@@ -246,18 +265,25 @@ a.navbar-item
     display: block
     font-size: 1.5em
     margin-bottom: .5em
+    transition: all .15s ease
   & article > a > span
     margin-left: .25em
 
 .player-stub
-    background-color: rgba(0, 0, 0, 0.2)
+    background-color: rgba(0, 0, 0, .2)
     background-position: top center
     display: grid
-    & span 
+    & > span 
       margin: auto 0
       line-height: normal
+      & > a
+        transition: all .15s ease
 
-@media screen and (min-width: $tablet) // браузер
+a.button:hover
+  color: #333
+
+// @media screen and (min-width: $tablet) // браузер
++tablet
   .streams
     overflow-x: auto
     & article
@@ -266,7 +292,8 @@ a.navbar-item
       width: 320px
       height: 180px
 
-@media screen and (max-width: $tablet) // мобильный
+// @media screen and (max-width: $tablet) // мобильный
++mobile
   .streams
     & article
       max-width: calc( 320px + 1.5rem )
