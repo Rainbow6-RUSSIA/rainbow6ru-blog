@@ -48,6 +48,37 @@ streams:
       name: BigLongFatGun
       platform: twitch
       show: false
+    - show: false
+      id: 115030397
+      name: TanyaLOA
+      platform: twitch
+    - show: false
+      name: Amedalook
+      platform: mixer
+    - show: false
+      id: 82495676
+      name: bravebabe
+      platform: twitch
+    - show: false
+      id: 272917245
+      name: yellowplaytv
+      platform: twitch
+    - show: false
+      id: 141157627
+      name: multiverse
+      platform: twitch
+    - show: false
+      name: septapi
+      id: 413114768
+      platform: twitch
+    - show: false
+      name: CrazzyDaisy
+      id: 123579046
+      platform: twitch
+    - show: false
+      id: 37349985
+      name: Green_Tea_Team
+      platform: twitch
     - id: 103500532
       name: FaZebook
       platform: twitch
