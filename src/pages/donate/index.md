@@ -1,8 +1,8 @@
 ---
 templateKey: 'donate-page'
 path: /donate
-title: Our Coffee
-image: /img/jumbotron.jpg
+title: Донат
+image: /img/siege-money-heist.jpg
 heading: Great coffee with a conscience
 description: >-
   Rainbow6-RUSSIA is the ultimate spot for coffee lovers who want to learn about their
