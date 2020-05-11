@@ -97,7 +97,7 @@ async function fetchTwitch(channels) {
 }
 
 const PreviewWrapper = ({ items, preview }) => {
-    if (preview || typeof window === 'undefined') {
+    if (preview || typeof window === 'undefined' || process.env.NODE_ENV === 'development') {
         return (
             <div className="columns streams">
                 {items.map(i => <SimpleStream key={i.id} item={i} />)}
