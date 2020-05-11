@@ -1,0 +1,73 @@
+.navbar-brand
+  // высота navbar
+  & img
+    max-height: 3rem
+  & svg
+    fill: currentColor
+    height: 1.5rem
+
+.navbar-burger
+  height: 4rem
+  color: inherit
+.navbar
+  width: 100% !important // mobile horizontal overflow fix
+  padding: .5em
+  color: white
+  &.navbar-top
+    background-color: transparent
+  &.navbar-scrolled
+    background-color: $bg-navbar
+    box-shadow: 0 -2px .5em rgba(0, 0, 0, 1)
+
+a.navbar-item 
+  color: inherit
+  & .icon
+    color: $primary
+  & *
+    margin: 0 5px
+
++desktop
+  a.navbar-item
+    .navbar-end &:last-of-type // селектор последней кнопки
+      border-width: 3px
+      border-style: solid
+      border-image: $r6ru-flag 1%
+      margin-left: .5em
+      .navbar-top & // если страница в топе
+        &:hover, &:focus
+          background-image: $r6ru-flag
+      .navbar-scrolled & // если страница прокручена
+        background-image: $r6ru-flag
+        &:hover, &:focus
+          box-shadow: 0 -2px .75em rgba(0, 0, 0, 1)
+
+    // подчеркивание при наведении на кнопки
+    &:hover, &:focus
+      background-color: inherit
+      color: inherit
+      border-bottom: 3px solid $r6ru-color-invert
+    // кроме бренда
+    .navbar-brand &
+      &:hover, &:focus
+        border-bottom: none
+
++touch
+  // скругление бургер-меню на мобиле когда страница в топе
+  .navbar-menu
+    box-shadow: none
+    background-color: $bg-navbar
+    .navbar-top &
+      border-radius: 1.5rem
+
+  // отмена границ и сдвига
+  a.navbar-item
+    // background-color: inherit !important
+    margin-left: 0
+    color: inherit
+    box-shadow: none
+    &, &:hover
+      border: none
+      background-image: unset
+    .navbar-top & // если страница в топе
+      &:hover, &:focus
+        background-color: inherit

@@ -1,0 +1,59 @@
+@import "./variables"
+
+// Блок стримов
+
+.streams
+  // display: flex
+  & article
+    background-color: $background
+    // box-shadow: -.25em -.25em .5em rgba(0, 0, 0, 1)
+    border-radius: 1em
+    margin: .5em
+    height: 100%
+  & article > div // спиннер загрузки
+    height: 180px
+    line-height: 180px
+    text-align: center
+    vertical-align: middle
+  & article > a.title
+    display: block
+    font-size: 1.5em
+    margin-bottom: .5em
+    transition: all .15s ease
+  & article > a > span
+    margin-left: .25em
+
+.player-stub
+    background-color: rgba(0, 0, 0, .2)
+    background-position: top center
+    display: grid
+    & > span 
+      margin: auto 0
+      line-height: normal
+      & > a
+        transition: all .15s ease
+
+
+// @media screen and (min-width: $tablet) // браузер
++tablet
+  .streams
+    overflow-x: auto
+    & article
+      max-width: calc( 320px + 1.5rem )
+    & article > div
+      width: 320px
+      height: 180px
+
+// @media screen and (max-width: $tablet) // мобильный
++mobile
+  .streams
+    & article
+      max-width: calc( 320px + 1.5rem )
+      min-width: calc( 240px + 1.5rem )
+    & article > div
+      max-width: 320px
+      min-width: 240px
+      // margin-left: auto
+      // margin-right: auto
+    & article > a.title
+      text-align: center

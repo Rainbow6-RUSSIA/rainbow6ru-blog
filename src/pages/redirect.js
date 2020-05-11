@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../components/all.sass';
+import '../components/styles/index.sass';
 import { auth } from "../utils/auth";
 
 const H6 = ({ children, color }) => <h6 className="subtitle is-6" style={{color}}>{children}</h6>
