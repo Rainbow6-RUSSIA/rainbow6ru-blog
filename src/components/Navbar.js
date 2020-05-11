@@ -1,5 +1,5 @@
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
-import { faDonate, faDoorOpen, faInfoCircle, faNewspaper, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+import { faDonate, faDoorOpen, faFileSignature, faInfoCircle, faNewspaper, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -46,7 +46,6 @@ const Navbar = class extends React.Component {
         role="navigation"
         aria-label="main-navigation"
       >
-        {/* <div className="container"> */}
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
               <img src={logoPNG} alt="Rainbow6-RUSSIA" />
@@ -65,10 +64,7 @@ const Navbar = class extends React.Component {
               <span />
             </div>
           </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
+          <div id="navMenu" className={`navbar-menu ${this.state.navBarActiveClass}`}>
             <div className="navbar-start">
               <Link className="navbar-item" to="/blog">
                 <FontAwesomeIcon icon={faNewspaper}/>
@@ -78,6 +74,28 @@ const Navbar = class extends React.Component {
                 <FontAwesomeIcon icon={faDonate}/>
                 Поддержать нас
               </Link>
+              <div className="navbar-item has-dropdown is-hoverable">
+                <Link className="navbar-link" to="/contact">
+                  <FontAwesomeIcon icon={faFileSignature}/>
+                  Связаться
+                </Link>
+
+                <div className="navbar-dropdown">
+                  <Link className="navbar-item" to="/contact/unban">
+                    Разбан
+                  </Link>
+                  <Link className="navbar-item" to="/contact/lobby">
+                    Другой ник в лобби
+                  </Link>
+                  <Link className="navbar-item" to="/contact/18yo">
+                    Верификация 18+
+                  </Link>
+                  <hr className="navbar-divider" />
+                  <Link className="navbar-item" to="/contact/other">
+                    Прочие вопросы
+                  </Link>
+                </div>
+              </div>
               <Link className="navbar-item" to="/about">
                 <FontAwesomeIcon icon={faInfoCircle}/>
                 О нас
@@ -99,7 +117,6 @@ const Navbar = class extends React.Component {
               </a>
             </div>
           </div>
-        {/* </div> */}
       </nav>
     )
   }
