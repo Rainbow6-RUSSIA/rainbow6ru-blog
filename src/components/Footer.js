@@ -43,17 +43,17 @@ const Footer = () => (
           </div>
           <div className="column">
             <div className="social">
-              <a style={{ color: '#4680C2', ...hw }} title="VK" href="https://vk.com/rainbow6_ru">
-                <FontAwesomeIcon icon={faVk}/>
+              <a title="VK" href="https://vk.com/rainbow6_ru">
+                <FontAwesomeIcon style={{ color: '#4680C2', ...hw }} icon={faVk}/>
               </a>
-              <a style={{ color: 'black', ...hw }} title="Steam" href="https://steamcommunity.com/groups/Rainbow6-RUSSIA">
-                <FontAwesomeIcon icon={faSteam}/>
+              <a title="Twitch" href="https://www.twitch.tv/rainbow6russia">
+                <FontAwesomeIcon style={{ color: '#6441A4', ...hw }} icon={faTwitch}/>
               </a>
-              <a style={{ color: '#6441A4', ...hw }} title="Twitch" href="https://www.twitch.tv/rainbow6russia">
-                <FontAwesomeIcon icon={faTwitch}/>
+              <a title="Steam" href="https://steamcommunity.com/groups/Rainbow6-RUSSIA">
+                <FontAwesomeIcon style={{ color: 'black', ...hw }} icon={faSteam}/>
               </a>
-              <a style={{ color: '#C4302B', ...hw }} title="YouTube" href="https://www.youtube.com/channel/UC1QbCOt1inoZYExC73OaVJw">
-                <FontAwesomeIcon icon={faYoutube}/>
+              <a title="YouTube" href="https://www.youtube.com/channel/UC1QbCOt1inoZYExC73OaVJw">
+                <FontAwesomeIcon style={{ color: '#C4302B', ...hw }} icon={faYoutube}/>
               </a>
             </div>
           </div>
