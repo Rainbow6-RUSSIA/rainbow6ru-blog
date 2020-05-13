@@ -54,7 +54,6 @@
     "start": "npm run develop",
     "start:proxy": "netlify-cms-proxy-server",
     "build": "node ./edit-config.js disable && npm run clean && gatsby build",
-    "build:production": "node ./edit-config.js disable && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "npm run clean && gatsby develop -H 0.0.0.0",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
