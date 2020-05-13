@@ -53,7 +53,8 @@
     "clean": "gatsby clean",
     "start": "npm run develop",
     "start:proxy": "netlify-cms-proxy-server",
-    "build": "node ./edit-config.js disable && npm run clean && cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build": "node ./edit-config.js disable && npm run clean && gatsby build",
+    "build:production": "node ./edit-config.js disable && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "npm run clean && gatsby develop -H 0.0.0.0",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -63,7 +64,6 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
-    "cross-env": "^7.0.2",
     "netlify-cli": "^2.48.0",
     "netlify-cms-proxy-server": "^1.2.6",
     "prettier": "^2.0.4",
