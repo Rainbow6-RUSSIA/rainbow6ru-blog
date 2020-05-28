@@ -51,7 +51,7 @@ streams:
     - show: true
       name: Amedalook
       platform: twitch
-      id: 80621169
+      id: 80621168
     - show: false
       id: 115030397
       name: TanyaLOA
