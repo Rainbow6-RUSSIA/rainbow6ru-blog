@@ -48,13 +48,14 @@ streams:
       name: BigLongFatGun
       platform: twitch
       show: false
+    - show: true
+      name: Amedalook
+      platform: twitch
+      id: 80621169
     - show: false
       id: 115030397
       name: TanyaLOA
       platform: twitch
-    - show: false
-      name: Amedalook
-      platform: mixer
     - show: false
       id: 82495676
       name: bravebabe
