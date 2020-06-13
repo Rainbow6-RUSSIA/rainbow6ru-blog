@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 class TagRoute extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
-    const postLinks = posts.map(post => (
+    const postLinks = posts.map((post) => (
       <li key={post.node.fields.slug}>
         <Link to={post.node.fields.slug}>
           <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
@@ -16,16 +16,19 @@ class TagRoute extends React.Component {
     const tag = this.props.pageContext.tag
     const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
-    let postfix;
+    let postfix
     switch (totalCount % 10) {
-      case 1: postfix = ''
-        break;
+      case 1:
+        postfix = ''
+        break
       case 2:
       case 3:
-      case 4: postfix = 'a'
-        break;
-      default: postfix = 'ов'
-        break;
+      case 4:
+        postfix = 'a'
+        break
+      default:
+        postfix = 'ов'
+        break
     }
     const tagHeader = `${totalCount} пост${postfix} с тегом “${tag}”`
 

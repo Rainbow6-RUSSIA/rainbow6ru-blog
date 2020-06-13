@@ -14,12 +14,16 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-  streams
+  streams,
 }) => (
   <div>
     <div
       className="full-width-image margin-top-0 bg-banner"
-      style={{ backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})` }}
+      style={{
+        backgroundImage: `url(${
+          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+        })`,
+      }}
     >
       <div className="index-title">
         <h1 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen">
@@ -41,7 +45,9 @@ export const IndexPageTemplate = ({
                     <h1 className="title">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
-                    <h4 className="subtitle">{stringBreaker(mainpitch.description)}</h4>
+                    <h4 className="subtitle">
+                      {stringBreaker(mainpitch.description)}
+                    </h4>
                   </div>
                 </div>
                 <div className="columns">
@@ -52,7 +58,7 @@ export const IndexPageTemplate = ({
                     <p>{streams.description}</p>
                   </div>
                 </div>
-                <Streams preview={streams.preview} items={streams.channels}/>
+                <Streams preview={streams.preview} items={streams.channels} />
                 {/* <div className="columns">
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/donate">
@@ -99,10 +105,10 @@ IndexPageTemplate.propTypes = {
         id: PropTypes.number,
         platform: PropTypes.oneOf(['twitch', 'mixer']),
         show: PropTypes.bool,
-        name: PropTypes.string
+        name: PropTypes.string,
       })
-    )
-  })
+    ),
+  }),
 }
 
 const IndexPage = ({ data }) => {
@@ -118,7 +124,6 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
-
         streams={frontmatter.streams}
       />
     </Layout>

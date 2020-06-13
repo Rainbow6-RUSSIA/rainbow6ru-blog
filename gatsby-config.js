@@ -37,10 +37,10 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Rubick`,
-            variants: [`400`, `700`],
-            subsets: [`latin`, 'cyrillic'],
-          }
+            family: 'Rubick',
+            variants: ['400', '700'],
+            subsets: ['latin', 'cyrillic'],
+          },
         ],
       },
     },
