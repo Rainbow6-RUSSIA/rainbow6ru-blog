@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
@@ -30,6 +30,18 @@ module.exports = {
       options: {
         path: `${__dirname}/src/img`,
         name: 'images',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Rubick`,
+            variants: [`400`, `700`],
+            subsets: [`latin`, 'cyrillic'],
+          }
+        ],
       },
     },
     'gatsby-plugin-react-svg',
