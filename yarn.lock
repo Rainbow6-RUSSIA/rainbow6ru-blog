@@ -14660,9 +14660,9 @@ react-transition-group@^2.2.1, react-transition-group@^2.6.0:
     react-lifecycles-compat "^3.0.4"
 
 react-twitch-embed-video@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-twitch-embed-video/-/react-twitch-embed-video-2.0.2.tgz#c87149d9c26f343df48c13ea09760810a5a23560"
-  integrity sha512-gFILWtsMWJPty3whi4P9Uk3XMOzVxuPVj6NxdOFZDl/5F2REVIQKKGjcB4Xb8P55jejRgmKFaOqcJzV+2Yg7uQ==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-twitch-embed-video/-/react-twitch-embed-video-2.0.4.tgz#60096a1caabb0c6d240d53c503ba29ac87f2d03e"
+  integrity sha512-0gNIyY1l9tHBzkWGaDCM0P4tRH2EuxDka0g4znckrztitO06ddoLfAxilCjMYxatRjdGLV38yQuE50nVvIv6GA==
   dependencies:
     window-or-global "^1.0.1"
 
